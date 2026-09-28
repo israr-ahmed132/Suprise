@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>For Wajiha ❤️</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff5f8;
+            color: #542d3d;
+            overflow-x: hidden;
+        }
+
+
+        /* =================================
+           SECRET LOCK SCREEN
+        ================================= */
+
+        #secretLock {
+
+            position: fixed;
+            inset: 0;
+
+            min-height: 100vh;
+            min-height: 100svh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #ffdce8,
+                    transparent 40%
+                ),
+
+                radial-gradient(
+                    circle at bottom right,
+                    #ffe5d4,
+                    transparent 40%
+                ),
+
+                #fff7fa;
+
+            z-index: 9999;
+        }
+
+
+        .lock-card {
+
+            width: min(500px, 95vw);
+
+            text-align: center;
+
+            padding: 40px 25px;
+
+            background:
+                rgba(255, 255, 255, 0.90);
+
+            border-radius: 35px;
+
+            box-shadow:
+                0 25px 70px
+                rgba(100, 40, 70, 0.18);
+        }
+
+
+        .lock-heart {
+
+            font-size: 65px;
+            margin-bottom: 15px;
+
+            animation:
+                heartbeat 1.5s infinite;
+        }
+
+
+        .lock-small {
+
+            color: #c55277;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            font-weight: 600;
+
+            margin-bottom: 15px;
+        }
+
+
+        .lock-card h1 {
+
+            font-family:
+                'Dancing Script',
+                cursive;
+
+            font-size:
+                clamp(40px, 8vw, 60px);
+
+            color: #7b2948;
+
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+        }
+
+
+        .lock-card p {
+
+            color: #765764;
+            line-height: 1.7;
+        }
+
+
+        #secretCode {
+
+            width: 100%;
+
+            padding: 14px 18px;
+
+            margin: 15px 0;
+
+            border: 1px solid #edcbd7;
+
+            border-radius: 50px;
+
+            outline: none;
+
+            text-align: center;
+
+            font-size: 16px;
+
+            font-family:
+                'Poppins',
+                sans-serif;
+
+            background: #fff;
+        }
+
+
+        #secretCode:focus {
+
+            border-color: #d85c82;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(216, 92, 130, 0.1);
+        }
+
+
+        .unlock-btn {
+
+            width: 100%;
+
+            border: none;
+
+            padding: 14px 25px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d85c82,
+                    #a83f62
+                );
+
+            color: white;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .unlock-btn:hover {
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        #wrongCode {
+
+            display: none;
+
+            color: #c44c6f;
+
+            margin-top: 15px;
+
+            font-size: 13px;
+        }
+
+
+        /* =================================
+           PAGE
+        ================================= */
+
+        .page {
+
+            min-height: 100vh;
+            min-height: 100svh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px 20px;
+
+            position: relative;
+
+            animation:
+                fadeIn 0.8s ease;
+        }
+
+
+        .hidden {
+
+            display: none !important;
+        }
+
+
+        /* =================================
+           BACKGROUNDS
+        ================================= */
+
+        #home {
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #ffdce8,
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at bottom right,
+                    #ffe6d2,
+                    transparent 35%
+                ),
+
+                #fff7fa;
+        }
+
+
+        #welcome {
+
+            background:
+                radial-gradient(
+                    circle at top right,
+                    #ffe2ed,
+                    transparent 35%
+                ),
+
+                #fff7fa;
+        }
+
+
+        #sorry {
+
+            background:
+                radial-gradient(
+                    circle at bottom left,
+                    #ffd8e5,
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at top right,
+                    #ffe5d5,
+                    transparent 35%
+                ),
+
+                #fff7fa;
+        }
+
+
+        #love {
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #ffdce8,
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at bottom right,
+                    #ffe5d4,
+                    transparent 35%
+                ),
+
+                #fff7fa;
+        }
+
+
+        /* =================================
+           TYPOGRAPHY
+        ================================= */
+
+        h1,
+        h2 {
+
+            font-family:
+                'Dancing Script',
+                cursive;
+        }
+
+
+        h1 {
+
+            font-size:
+                clamp(45px, 7vw, 80px);
+
+            line-height: 1.1;
+
+            color: #7b2948;
+        }
+
+
+        h2 {
+
+            font-size:
+                clamp(42px, 7vw, 65px);
+
+            color: #7b2948;
+        }
+
+
+        h2 span {
+
+            color: #d3547b;
+        }
+
+
+        .small-title {
+
+            color: #c55277;
+
+            font-size: 13px;
+
+            letter-spacing: 4px;
+
+            font-weight: 600;
+
+            margin-bottom: 18px;
+        }
+
+
+        .text {
+
+            max-width: 620px;
+
+            margin:
+                20px auto 30px;
+
+            line-height: 1.8;
+
+            color: #765764;
+        }
+
+
+        /* =================================
+           BUTTON
+        ================================= */
+
+        .next-btn {
+
+            border: none;
+
+            padding:
+                14px 32px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d85c82,
+                    #a83f62
+                );
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 500;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 25px
+                rgba(168, 63, 98, 0.25);
+
+            transition: 0.3s;
+        }
+
+
+        .next-btn:hover {
+
+            transform:
+                translateY(-4px)
+                scale(1.03);
+        }
+
+
+        /* =================================
+           HOME FLOWER
+        ================================= */
+
+        .flower {
+
+            font-size: 75px;
+
+            margin-bottom: 20px;
+
+            animation:
+                float 3s ease-in-out infinite;
+        }
+
+
+        /* =================================
+           COUPLE PHOTO CARD
+        ================================= */
+
+        .couple-card {
+
+            width:
+                min(650px, 95vw);
+
+            margin:
+                0 auto 30px;
+
+            padding: 25px;
+
+            background:
+                rgba(255,255,255,0.85);
+
+            border-radius: 35px;
+
+            box-shadow:
+                0 25px 60px
+                rgba(100,40,70,0.15);
+        }
+
+
+        .couple-title {
+
+            font-family:
+                'Dancing Script',
+                cursive;
+
+            font-size: 32px;
+
+            color: #8b3152;
+
+            margin-bottom: 20px;
+        }
+
+
+        .couple-photos {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            position: relative;
+
+            gap: 15px;
+        }
+
+
+        .person-box {
+
+            text-align: center;
+
+            width: 45%;
+        }
+
+
+        .person-photo {
+
+            width: 100%;
+
+            height: 280px;
+
+            object-fit: cover;
+
+            border-radius: 25px;
+
+            border: 5px solid white;
+
+            box-shadow:
+                0 12px 30px
+                rgba(100,40,70,0.18);
+
+            transition: 0.4s;
+        }
+
+
+        .person-photo:hover {
+
+            transform:
+                translateY(-8px);
+        }
+
+
+        .photo-name {
+
+            font-family:
+                'Dancing Script',
+                cursive;
+
+            font-size: 25px;
+
+            color: #a33d61;
+
+            margin-top: 10px;
+        }
+
+
+        .heart-middle {
+
+            position: absolute;
+
+            left: 50%;
+            top: 48%;
+
+            transform:
+                translate(-50%, -50%);
+
+            width: 65px;
+            height: 65px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 38px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(100,40,70,0.2);
+
+            z-index: 5;
+
+            animation:
+                heartbeat 1.5s infinite;
+        }
+
+
+        /* =================================
+           SORRY CARD
+        ================================= */
+
+        .sorry-icon {
+
+            font-size: 85px;
+
+            margin-bottom: 10px;
+
+            animation:
+                float 3s ease-in-out infinite;
+        }
+
+
+        .sorry-card {
+
+            max-width: 650px;
+
+            margin:
+                25px auto 30px;
+
+            padding: 35px 30px;
+
+            background:
+                rgba(255,255,255,0.88);
+
+            border-radius: 35px;
+
+            border:
+                1px solid #f3d3dd;
+
+            box-shadow:
+                0 25px 60px
+                rgba(100,40,70,0.14);
+
+            line-height: 1.9;
+        }
+
+
+        .sorry-title {
+
+            font-family:
+                'Dancing Script',
+                cursive;
+
+            font-size:
+                clamp(45px, 8vw, 65px);
+
+            color: #b64068;
+
+            margin-bottom: 20px;
+        }
+
+
+        .sorry-text {
+
+            color: #694d59;
+
+            font-size: 15px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .sorry-highlight {
+
+            font-family:
+                'Dancing Script',
+                cursive;
+
+            font-size: 30px;
+
+            color: #b64068;
+
+            margin-top: 20px;
+        }
+
+
+        /* =================================
+           LOVE CARD
+        ================================= */
+
+        .heart {
+
+            font-size: 80px;
+
+            animation:
+                heartbeat 1.5s infinite;
+        }
+
+
+        .love-card {
+
+            max-width: 680px;
+
+            margin:
+                25px auto 30px;
+
+            padding: 35px;
+
+            background:
+                rgba(255,255,255,0.78);
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(100,50,70,0.1);
+
+            line-height: 1.9;
+
+            color: #694d59;
+        }
+
+
+        .final-message {
+
+            font-family:
+                'Dancing Script',
+                cursive;
+
+            font-size: 28px;
+
+            color: #b53e68;
+        }
+
+
+        .signature {
+
+            font-family:
+                'Dancing Script',
+                cursive;
+
+            font-size: 25px;
+
+            color: #7b2948;
+
+            margin-top: 20px;
+        }
+
+
+        /* =================================
+           FLOATING HEARTS
+        ================================= */
+
+        .floating-hearts {
+
+            position: fixed;
+
+            width: 100%;
+            height: 100%;
+
+            top: 0;
+            left: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+            z-index: 50;
+        }
+
+
+        .floating-hearts span {
+
+            position: absolute;
+
+            bottom: -50px;
+
+            font-size: 20px;
+
+            opacity: 0.6;
+
+            animation:
+                rise 8s linear infinite;
+        }
+
+
+        .floating-hearts span:nth-child(1) {
+
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+
+        .floating-hearts span:nth-child(2) {
+
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+
+        .floating-hearts span:nth-child(3) {
+
+            left: 55%;
+            animation-delay: 2s;
+        }
+
+
+        .floating-hearts span:nth-child(4) {
+
+            left: 75%;
+            animation-delay: 5s;
+        }
+
+
+        .floating-hearts span:nth-child(5) {
+
+            left: 90%;
+            animation-delay: 3s;
+        }
+
+
+        /* =================================
+           ANIMATIONS
+        ================================= */
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-12px);
+            }
+        }
+
+
+        @keyframes heartbeat {
+
+            0% {
+
+                transform:
+                    scale(1);
+            }
+
+            15% {
+
+                transform:
+                    scale(1.15);
+            }
+
+            30% {
+
+                transform:
+                    scale(1);
+            }
+
+            45% {
+
+                transform:
+                    scale(1.15);
+            }
+
+            60% {
+
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        @keyframes rise {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            20% {
+
+                opacity: 0.7;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            .page {
+
+                padding:
+                    30px 15px;
+            }
+
+
+            h1 {
+
+                font-size: 45px;
+            }
+
+
+            h2 {
+
+                font-size: 43px;
+            }
+
+
+            .flower,
+            .sorry-icon,
+            .heart {
+
+                font-size: 60px;
+            }
+
+
+            .couple-card {
+
+                padding:
+                    18px 10px;
+            }
+
+
+            .couple-photos {
+
+                gap: 7px;
+            }
+
+
+            .person-box {
+
+                width: 47%;
+            }
+
+
+            .person-photo {
+
+                height: 220px;
+
+                border-radius: 18px;
+
+                border-width: 4px;
+            }
+
+
+            .heart-middle {
+
+                width: 55px;
+
+                height: 55px;
+
+                font-size: 30px;
+            }
+
+
+            .couple-title {
+
+                font-size: 27px;
+            }
+
+
+            .photo-name {
+
+                font-size: 22px;
+            }
+
+
+            .sorry-card {
+
+                padding:
+                    28px 18px;
+            }
+
+
+            .sorry-text {
+
+                font-size: 14px;
+            }
+
+
+            .sorry-highlight {
+
+                font-size: 26px;
+            }
+
+
+            .love-card {
+
+                padding:
+                    25px 18px;
+
+                font-size: 14px;
+            }
+
+
+            .final-message {
+
+                font-size: 24px;
+            }
+
+
+            .next-btn {
+
+                width: 100%;
+
+                max-width: 310px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =================================
+     SECRET CODE
+================================= -->
+
+<div id="secretLock">
+
+    <div class="lock-card">
+
+        <div class="lock-heart">
+            🔐❤️
+        </div>
+
+        <div class="lock-small">
+            A LITTLE SECRET
+        </div>
+
+        <h1>
+            This surprise is<br>
+            only for Wajiha 🌸
+        </h1>
+
+        <p>
+            Enter your secret code to open
+            your surprise. 💌
+        </p>
+
+        <input
+            type="password"
+            id="secretCode"
+            placeholder="Enter secret code">
+
+        <button
+            class="unlock-btn"
+            onclick="unlockWebsite()">
+
+            Unlock My Surprise ❤️
+
+        </button>
+
+        <p id="wrongCode">
+            Hmm... that's not the secret code 😄
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     FLOATING HEARTS
+================================= -->
+
+<div class="floating-hearts">
+
+    <span>❤️</span>
+    <span>💗</span>
+    <span>💕</span>
+    <span>🌸</span>
+    <span>❤️</span>
+
+</div>
+
+
+
+<!-- =================================
+     PAGE 1 — INTRO
+================================= -->
+
+<section id="home" class="page hidden">
+
+    <div class="container text-center">
+
+        <div class="flower">
+            🌸
+        </div>
+
+        <div class="small-title">
+            A LITTLE SURPRISE FOR YOU
+        </div>
+
+        <h1>
+
+            Someone very special<br>
+            deserves a little surprise ❤️
+
+        </h1>
+
+        <p class="text">
+
+            Wajiha...
+            I made this little website
+            just for you.
+
+            There is something
+            I really want to say. 🌷
+
+        </p>
+
+        <button
+            class="next-btn"
+            onclick="showPage('welcome')">
+
+            Open Your Surprise 💌
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PAGE 2 — COUPLE CARD
+================================= -->
+
+<section id="welcome" class="page hidden">
+
+    <div class="container text-center">
+
+        <div class="small-title">
+            JUST YOU & ME
+        </div>
+
+        <h2>
+
+            Wajiha ❤️
+            <span>Israr</span>
+
+        </h2>
+
+        <p class="text">
+
+            Some people become special
+            without even trying...
+
+            and you are one of those
+            people for me. ❤️
+
+        </p>
+
+
+        <!-- COUPLE PHOTO CARD -->
+
+        <div class="couple-card">
+
+            <div class="couple-title">
+
+                Two People,
+                One Beautiful Story ❤️
+
+            </div>
+
+
+            <div class="couple-photos">
+
+
+                <!-- WAJIHA PHOTO -->
+
+                <div class="person-box">
+
+                    <img
+                        src="images/WhatsApp Image 2026-09-28 at 3.47.18 PM.jpeg"
+                        class="person-photo"
+                        alt="Wajiha">
+
+                    <div class="photo-name">
+                        Wajiha 🌸
+                    </div>
+
+                </div>
+
+
+                <!-- ISRAR PHOTO -->
+
+                <div class="person-box">
+
+                    <img
+                        src="images/Israr.jpeg"
+                        class="person-photo"
+                        alt="Israr">
+
+                    <div class="photo-name">
+                        Israr ❤️
+                    </div>
+
+                </div>
+
+
+                <!-- HEART -->
+
+                <div class="heart-middle">
+                    ❤️
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="next-btn"
+            onclick="showPage('sorry')">
+
+            There's Something I Want To Say 🥺
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PAGE 3 — SORRY
+================================= -->
+
+<section id="sorry" class="page hidden">
+
+    <div class="container text-center">
+
+
+        <div class="sorry-icon">
+            🥺💐
+        </div>
+
+
+        <div class="small-title">
+            FROM MY HEART
+        </div>
+
+
+        <div class="sorry-card">
+
+            <div class="sorry-title">
+
+                I'm Sorry, Wajiha ❤️
+
+            </div>
+
+
+            <p class="sorry-text">
+
+                I know you're upset with me,
+                and honestly...
+
+                I don't like knowing that
+                you're angry because of me.
+
+            </p>
+
+
+            <p class="sorry-text">
+
+                Maybe I made a mistake,
+                maybe I said something wrong,
+                or maybe I simply failed
+                to understand your feelings.
+
+            </p>
+
+
+            <p class="sorry-text">
+
+                Whatever the reason is,
+                I'm genuinely sorry.
+
+                I don't want my ego to be
+                bigger than the person
+                who means so much to me.
+
+            </p>
+
+
+            <p class="sorry-text">
+
+                I can't promise that I'll
+                never make a mistake...
+
+                but I can promise that
+                I'll always try to understand,
+                respect and value you.
+
+            </p>
+
+
+            <div class="sorry-highlight">
+
+                Please forgive me? 🥺❤️
+
+            </div>
+
+
+            <p class="sorry-text">
+
+                One smile from you
+                can make everything
+                feel a little better. 🌸
+
+            </p>
+
+        </div>
+
+
+        <button
+            class="next-btn"
+            onclick="showPage('love')">
+
+            Okay... One Last Thing ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PAGE 4 — FINAL MESSAGE
+================================= -->
+
+<section id="love" class="page hidden">
+
+    <div class="container text-center">
+
+
+        <div class="heart">
+            ❤️
+        </div>
+
+
+        <div class="small-title">
+            ONE LAST MESSAGE
+        </div>
+
+
+        <h2>
+
+            For You,
+            <span>Wajiha</span> 🌸
+
+        </h2>
+
+
+        <div class="love-card">
+
+            <p>
+
+                I made all of this just
+                because I wanted to see
+                you smile again.
+
+            </p>
+
+
+            <p>
+
+                You are important to me,
+                and I never want a small
+                misunderstanding to become
+                bigger than what we have.
+
+            </p>
+
+
+            <p>
+
+                So from the bottom of my heart...
+
+                <strong>
+                    I'm really sorry. ❤️
+                </strong>
+
+            </p>
+
+
+            <p class="final-message">
+
+                Now please give me
+                that beautiful smile again. 🥺🌸
+
+            </p>
+
+
+            <div class="signature">
+
+                — Israr ❤️
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="next-btn"
+            onclick="showPage('home')">
+
+            Start Again 🌸
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     JAVASCRIPT
+================================= -->
+
+<script>
+
+
+    /* =================================
+       SECRET CODE
+    ================================= */
+
+    function unlockWebsite() {
+
+
+        const enteredCode =
+
+            document
+            .getElementById("secretCode")
+            .value
+            .trim();
+
+
+        /*
+            CHANGE YOUR SECRET CODE HERE
+
+            Current code = 832
+
+            You can change it to anything:
+
+            "1234"
+            "Wajiha"
+            "Love832"
+            "2809"
+        */
+
+        const correctCode = "832";
+
+
+        if (enteredCode === correctCode) {
+
+
+            /* Hide secret screen */
+
+            document
+                .getElementById("secretLock")
+                .style.display = "none";
+
+
+            /* Show first page */
+
+            document
+                .getElementById("home")
+                .classList
+                .remove("hidden");
+
+
+        }
+
+        else {
+
+
+            /* Wrong code */
+
+            document
+                .getElementById("wrongCode")
+                .style.display = "block";
+
+        }
+
+    }
+
+
+
+    /* =================================
+       PAGE NAVIGATION
+    ================================= */
+
+    function showPage(pageId) {
+
+
+        const pages =
+            document
+            .querySelectorAll(".page");
+
+
+        pages.forEach(function(page) {
+
+            page.classList.add("hidden");
+
+        });
+
+
+        const selectedPage =
+            document
+            .getElementById(pageId);
+
+
+        selectedPage
+            .classList
+            .remove("hidden");
+
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+
+
+
+    /* =================================
+       ENTER KEY
+    ================================= */
+
+    document
+        .getElementById("secretCode")
+        .addEventListener(
+            "keypress",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    unlockWebsite();
+
+                }
+
+            }
+        );
+
+
+</script>
+
+
+</body>
+
+</html>
